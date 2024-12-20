@@ -54,7 +54,7 @@
       "prenom": "Philippe",
       "adresse": "18 rue Jean Jaures 06000 Nice",
       "email": "admin",
-      "password": "admin",
+      "password": "1234",
       "sexe": "Homme",
       "telephone": "0706050403",
       "role": "admin"

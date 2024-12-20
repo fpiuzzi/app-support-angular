@@ -25,6 +25,9 @@ import {HttpClientModule} from '@angular/common/http';
 import {AuthGuard} from './guard/auth.guard';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {HomeComponent} from './home/home.component';
+import {ProjectListComponent} from './components/project/project-list/project-list.component';
+import {AddProjectComponent} from './components/project/add-project/add-project.component';
+import {MatInput} from '@angular/material/input';
 
 @NgModule({
   declarations: [
@@ -33,7 +36,7 @@ import {HomeComponent} from './home/home.component';
     HomeComponent,
     LoginComponent,
     AddTicketComponent,
-    TicketListComponent
+    TicketListComponent,
   ],
   imports: [
     BrowserModule,
@@ -52,7 +55,8 @@ import {HomeComponent} from './home/home.component';
     MatSortModule,
     MatFormFieldModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatInput
   ],
   providers: [AuthGuard, provideAnimationsAsync()],
   bootstrap: [AppComponent]

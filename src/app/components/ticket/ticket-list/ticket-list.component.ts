@@ -2,7 +2,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Ticket } from '../../../models/ticket.model';
 import Swal from 'sweetalert2';
-import {TicketService} from '../../../services/ticket.service.service';
+import {TicketService} from '../../../services/ticket.service';
 
 @Component({
   selector: 'app-ticket-list',
