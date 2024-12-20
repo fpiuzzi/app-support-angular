@@ -1,0 +1,72 @@
+<!-- src/app/menu/menu.component.html -->
+<mat-toolbar color="primary">
+  <button mat-icon-button (click)="drawer.toggle()">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span class="spacer"></span>
+  <button mat-button routerLink="/menu/home">Accueil</button>
+  <button mat-button routerLink="/menu/tickets">Tickets</button>
+  <button mat-button *ngIf="(authService.userrole === 'admin')" routerLink="/menu/ticket">Nouveau Ticket</button>
+  <button mat-button routerLink="/menu/users">Utilisateurs</button>
+  <button mat-button routerLink="/menu/projects">Projets</button>
+  <button mat-button routerLink="/menu/clients">Clients</button>
+
+  <!-- Image de profil avec menu -->
+  <div class="profile-container mx-2">
+    <img
+      [src]="getUserImage(authService.usersexe)"
+      alt="Image de profil"
+      class="round-circle"
+      [matMenuTriggerFor]="menu"
+    />
+  </div>
+  <!-- Menu -->
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item>
+      <span>{{ authService.username }}</span>
+    </button>
+    <button mat-menu-item (click)="logout()">Déconnexion</button>
+  </mat-menu>
+</mat-toolbar>
+
+<mat-drawer-container class="example-container">
+  <mat-drawer #drawer mode="side" position="start" opened="true">
+    <mat-nav-list>
+      <mat-list-item>
+        <button mat-button routerLink="/menu/tickets">
+          <mat-icon>dashboard</mat-icon>
+          Tickets
+        </button>
+      </mat-list-item>
+      <mat-list-item>
+        <button mat-button *ngIf="(authService.userDetails && authService.userDetails.role === 'admin')" routerLink="/menu/ticket">
+          <mat-icon>dashboard</mat-icon>
+          Nouveau Ticket
+        </button>
+      </mat-list-item>
+      <mat-list-item>
+        <button mat-button routerLink="/menu/users">
+          <mat-icon>dashboard</mat-icon>
+          Utilisateurs
+        </button>
+      </mat-list-item>
+      <mat-list-item>
+        <button mat-button routerLink="/menu/projects">
+          <mat-icon>dashboard</mat-icon>
+          Projets
+        </button>
+      </mat-list-item>
+      <mat-list-item>
+        <button mat-button routerLink="/menu/clients">
+          <mat-icon>dashboard</mat-icon>
+          Clients
+        </button>
+      </mat-list-item>
+    </mat-nav-list>
+  </mat-drawer>
+  <mat-drawer-content>
+    <div style="min-height: 600px">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-drawer-content>
+</mat-drawer-container>

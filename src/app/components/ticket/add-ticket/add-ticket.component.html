@@ -1,0 +1,21 @@
+<!-- src/app/components/ticket/add-ticket/add-ticket.component.html -->
+<div class="card">
+  <div class="card-body">
+    <h1 class="card-title">Ajouter un nouveau ticket</h1>
+    <form [formGroup]="ticketForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="title">Titre</label>
+        <input type="text" id="title" class="form-control" formControlName="title">
+      </div>
+      <div class="form-group">
+        <label for="description">Description</label>
+        <textarea id="description" class="form-control" formControlName="description"></textarea>
+      </div>
+      <div class="form-group">
+        <label for="status">Statut</label>
+        <input type="text" id="status" class="form-control" formControlName="status">
+      </div>
+      <button type="submit" class="btn btn-primary">Ajouter</button>
+    </form>
+  </div>
+</div>
