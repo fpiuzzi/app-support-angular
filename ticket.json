@@ -1,0 +1,70 @@
+{
+  "tickets": [
+    {
+      "id": 1,
+      "title": "Problème de connexion",
+      "description": "Je ne peux pas me connecter à mon compte.",
+      "status": "Ouvert",
+      "createdAt": "2023-10-01T10:00:00Z",
+      "updatedAt": "2023-10-01T10:00:00Z"
+    },
+    {
+      "id": 2,
+      "title": "Erreur de paiement",
+      "description": "Mon paiement a échoué plusieurs fois.",
+      "status": "En cours",
+      "createdAt": "2023-10-02T11:00:00Z",
+      "updatedAt": "2023-10-02T11:00:00Z"
+    },
+    {
+      "id": 3,
+      "title": "Problème de livraison",
+      "description": "Je n'ai pas reçu ma commande.",
+      "status": "Fermé",
+      "createdAt": "2023-10-03T12:00:00Z",
+      "updatedAt": "2023-10-03T12:00:00Z"
+    }
+  ],
+  "users": [
+    {
+      "id": "1",
+      "nom": "DUMAS",
+      "prenom": "Laurent",
+      "adresse": "123 Rue de la Tourtelle 31400 Toulouse",
+      "email": "laurent.dumas@mymail.com",
+      "password": "hdumas",
+      "sexe": "Homme",
+      "telephone": "0605040302",
+      "role": "user"
+    },
+    {
+      "id": "2",
+      "nom": "LEMARCHAND",
+      "prenom": "Charlotte",
+      "adresse": "11 Impasse de la colline 44000 Nantes",
+      "email": "charlotte.lemarchand@mymail.com",
+      "password": "flemarch",
+      "sexe": "Femme",
+      "telephone": "0706050403",
+      "role": "user"
+    },
+    {
+      "id": "3",
+      "nom": "DEMAS",
+      "prenom": "Philippe",
+      "adresse": "18 rue Jean Jaures 06000 Nice",
+      "email": "admin",
+      "password": "admin",
+      "sexe": "Homme",
+      "telephone": "0706050403",
+      "role": "admin"
+    }
+  ],
+  "borrowedBooks": [
+    {
+      "userId": 1,
+      "bookId": 1,
+      "id": "1d09"
+    }
+  ]
+}
