@@ -1,1 +1,38 @@
-<p>user-list works!</p>
+<!-- src/app/components/user/user-list/user-list.component.html -->
+<div class="card">
+  <div class="card-body">
+    <h1 class="card-title">Liste des Utilisateurs</h1>
+    <button class="btn btn-primary mb-3" routerLink="/menu/user">Ajouter un nouvel utilisateur</button>
+    <table id="usersTable" class="table">
+      <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nom</th>
+        <th>Prénom</th>
+        <th>Adresse</th>
+        <th>Email</th>
+        <th>Sexe</th>
+        <th>Téléphone</th>
+        <th>Rôle</th>
+        <th>Actions</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let user of users">
+        <td>{{ user.id }}</td>
+        <td>{{ user.nom }}</td>
+        <td>{{ user.prenom }}</td>
+        <td>{{ user.adresse }}</td>
+        <td>{{ user.email }}</td>
+        <td>{{ user.sexe }}</td>
+        <td>{{ user.telephone }}</td>
+        <td>{{ user.role }}</td>
+        <td>
+          <button class="btn btn-warning me-2" (click)="updateUser(user)">Mettre à jour</button>
+          <button class="btn btn-danger" (click)="deleteUser(user.id)">Supprimer</button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

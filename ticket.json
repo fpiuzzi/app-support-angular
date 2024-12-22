@@ -1,7 +1,7 @@
 {
   "tickets": [
     {
-      "id": 1,
+      "id": "1",
       "title": "Problème de connexion",
       "description": "Je ne peux pas me connecter à mon compte.",
       "status": "Ouvert",
@@ -9,7 +9,7 @@
       "updatedAt": "2023-10-01T10:00:00Z"
     },
     {
-      "id": 2,
+      "id": "2",
       "title": "Erreur de paiement",
       "description": "Mon paiement a échoué plusieurs fois.",
       "status": "En cours",
@@ -17,12 +17,21 @@
       "updatedAt": "2023-10-02T11:00:00Z"
     },
     {
-      "id": 3,
+      "id": "3",
       "title": "Problème de livraison",
       "description": "Je n'ai pas reçu ma commande.",
       "status": "Fermé",
       "createdAt": "2023-10-03T12:00:00Z",
       "updatedAt": "2023-10-03T12:00:00Z"
+    },
+    {
+      "id": "4",
+      "ticketNumber": 0,
+      "title": "En panne",
+      "description": "Mon pc ne fonctionne plus depuis 1 semaine",
+      "status": "En cours",
+      "createdAt": "2024-12-20T22:23:00.527Z",
+      "updatedAt": "2024-12-20T22:34:48.967Z"
     }
   ],
   "users": [
@@ -60,11 +69,67 @@
       "role": "admin"
     }
   ],
-  "borrowedBooks": [
+  "clients": [
     {
-      "userId": 1,
-      "bookId": 1,
-      "id": "1d09"
+      "id": "1",
+      "nom": "Client A",
+      "prenom": "John",
+      "telephone": "0123456789",
+      "email": "clientA@example.com"
+    },
+    {
+      "id": "2",
+      "nom": "Client B",
+      "prenom": "Jane",
+      "telephone": "0987654321",
+      "email": "clientB@example.com"
+    },
+    {
+      "id": "4132",
+      "nom": "Client C",
+      "adresse": "toulouse",
+      "email": "ipi@ipi.fr",
+      "telephone": "0102030405",
+      "prenom": "toto"
+    },
+    {
+      "id": "4dae",
+      "nom": "Client D",
+      "adresse": "Marseille",
+      "email": "email@email.fr",
+      "telephone": "0504030201",
+      "prenom": "tata"
+    },
+    {
+      "id": "93b6",
+      "nom": "Client E",
+      "prenom": "john",
+      "adresse": "Bordeaux",
+      "email": "email@toto.fr",
+      "telephone": "0304050403"
+    }
+  ],
+  "projects": [
+    {
+      "id": "1",
+      "nom": "Projet Alpha",
+      "description": "Développement d'une nouvelle application web.",
+      "date": "2023-11-01T09:00:00Z",
+      "Cloture": false
+    },
+    {
+      "id": "2",
+      "nom": "Projet Beta",
+      "description": "Mise à jour du système de gestion des utilisateurs.",
+      "date": "2023-11-02T10:00:00Z",
+      "Cloture": true
+    },
+    {
+      "id": "21db",
+      "nom": "Projet 3",
+      "description": "C'est noel",
+      "date": "2024-12-21",
+      "Cloture": true
     }
   ]
 }

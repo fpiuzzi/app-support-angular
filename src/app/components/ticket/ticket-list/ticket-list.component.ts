@@ -1,12 +1,12 @@
 // src/app/components/ticket/ticket-list/ticket-list.component.ts
 import { Component, OnInit } from '@angular/core';
 import { Ticket } from '../../../models/ticket.model';
+import { TicketService } from '../../../services/ticket.service';
 import Swal from 'sweetalert2';
-import {TicketService} from '../../../services/ticket.service';
 
 @Component({
   selector: 'app-ticket-list',
-  standalone:false,
+  standalone: false,
   templateUrl: './ticket-list.component.html',
   styleUrls: ['./ticket-list.component.css']
 })
@@ -15,13 +15,17 @@ export class TicketListComponent implements OnInit {
 
   constructor(private ticketService: TicketService) {}
 
-  ngOnInit() {
-    this.ticketService.tickets$.subscribe((data) => {
+  ngOnInit(): void {
+    this.loadTickets();
+  }
+
+  loadTickets(): void {
+    this.ticketService.getTickets().subscribe(data => {
       this.tickets = data;
     });
   }
 
-  updateTicket(ticket: Ticket) {
+  updateTicket(ticket: Ticket): void {
     Swal.fire({
       title: 'Mettre à jour le ticket',
       html: `
@@ -45,13 +49,13 @@ export class TicketListComponent implements OnInit {
       if (result.isConfirmed) {
         this.ticketService.updateTicket(result.value).subscribe(() => {
           Swal.fire('Succès', 'Ticket mis à jour', 'success');
-          this.ticketService.loadTickets();
+          this.loadTickets();
         });
       }
     });
   }
 
-  deleteTicket(id: number) {
+  deleteTicket(id: number): void {
     Swal.fire({
       title: 'Êtes-vous sûr ?',
       text: 'Vous ne pourrez pas revenir en arrière !',
@@ -63,7 +67,7 @@ export class TicketListComponent implements OnInit {
       if (result.isConfirmed) {
         this.ticketService.deleteTicket(id).subscribe(() => {
           Swal.fire('Supprimé !', 'Le ticket a été supprimé.', 'success');
-          this.ticketService.loadTickets();
+          this.loadTickets();
         });
       }
     });

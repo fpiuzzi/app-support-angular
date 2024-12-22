@@ -1,1 +1,32 @@
-<p>user-list works!</p>
+<!-- src/app/components/client/client-list/client-list.component.html -->
+<div class="card">
+  <div class="card-body">
+    <h1 class="card-title">Liste des Clients</h1>
+    <button class="btn btn-primary mb-3" routerLink="/menu/client">Ajouter un nouveau client</button>
+    <table id="clientsTable" class="table">
+      <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nom</th>
+        <th>Prénom</th>
+        <th>Téléphone</th>
+        <th>Email</th>
+        <th>Actions</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let client of clients">
+        <td>{{ client.id }}</td>
+        <td>{{ client.nom }}</td>
+        <td>{{ client.prenom }}</td>
+        <td>{{ client.telephone }}</td>
+        <td>{{ client.email }}</td>
+        <td>
+          <button class="btn btn-warning me-2" (click)="updateClient(client)">Mettre à jour</button>
+          <button class="btn btn-danger" (click)="deleteClient(client.id)">Supprimer</button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

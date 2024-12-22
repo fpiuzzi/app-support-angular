@@ -1,1 +1,32 @@
-
+<!-- src/app/components/project/project-list/project-list.component.html -->
+<div class="card">
+  <div class="card-body">
+    <h1 class="card-title">Liste des Projets</h1>
+    <button class="btn btn-primary mb-3" routerLink="/menu/project">Ajouter un nouveau projet</button>
+    <table id="projectsTable" class="table">
+      <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nom</th>
+        <th>Description</th>
+        <th>Date</th>
+        <th>Clôturé</th>
+        <th>Actions</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let project of projects">
+        <td>{{ project.id }}</td>
+        <td>{{ project.nom }}</td>
+        <td>{{ project.description }}</td>
+        <td>{{ project.date | date: 'mediumDate'}}</td>
+        <td>{{ project.Cloture ? 'Oui' : 'Non' }}</td>
+        <td>
+          <button class="btn btn-warning me-2" (click)="updateProject(project)">Mettre à jour</button>
+          <button class="btn btn-danger" (click)="deleteProject(project.id)">Supprimer</button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

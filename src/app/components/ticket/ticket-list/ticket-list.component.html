@@ -1,8 +1,8 @@
 <!-- src/app/components/ticket/ticket-list/ticket-list.component.html -->
 <div class="card">
   <div class="card-body">
-    <h1 class="card-title">Tickets disponibles</h1>
-    <p>Voici la liste des tickets actuellement disponibles.</p>
+    <h1 class="card-title">Liste des Tickets</h1>
+    <button class="btn btn-primary mb-3" routerLink="/menu/ticket">Ajouter un nouveau ticket</button>
     <table id="ticketsTable" class="table">
       <thead>
       <tr>
@@ -21,8 +21,8 @@
         <td>{{ ticket.title }}</td>
         <td>{{ ticket.description }}</td>
         <td>{{ ticket.status }}</td>
-        <td>{{ ticket.createdAt  | date: 'short'}}</td>
-        <td>{{ ticket.updatedAt | date: 'short'}}</td>
+        <td>{{ ticket.createdAt | date: 'mediumDate'}}</td>
+        <td>{{ ticket.updatedAt | date: 'mediumDate'}}</td>
         <td>
           <button class="btn btn-warning me-2" (click)="updateTicket(ticket)">Mettre à jour</button>
           <button class="btn btn-danger" (click)="deleteTicket(ticket.id)">Supprimer</button>

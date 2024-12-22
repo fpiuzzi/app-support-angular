@@ -1,10 +1,69 @@
-import { Component } from '@angular/core';
+// src/app/components/project/project-list/project-list.component.ts
+import { Component, OnInit } from '@angular/core';
+import { Project } from '../../../models/project.model';
+import {ProjectService} from '../../../services/projet.service';
+import Swal from 'sweetalert2';
+
 
 @Component({
-  selector: 'app-user-list',
+  selector: 'app-project-list',
+  standalone: false,
   templateUrl: './project-list.component.html',
-  styleUrl: './project-list.component.css'
+  styleUrls: ['./project-list.component.css']
 })
-export class ProjectListComponent {
+export class ProjectListComponent implements OnInit {
+  projects: Project[] = [];
 
+  constructor(private projectService: ProjectService) {}
+
+  ngOnInit(): void {
+    this.projectService.getProjects().subscribe(data => {
+      this.projects = data;
+    });
+  }
+  updateProject(project: Project): void {
+    Swal.fire({
+      title: 'Mettre à jour le projet',
+      html: `
+        <input id="nom" class="swal2-input" placeholder="Nom" value="${project.nom}">
+        <input id="description" class="swal2-input" placeholder="Description" value="${project.description}">
+        <input id="date" class="swal2-input" type="date" value="${project.date}">
+        <div class="form-check">
+          <input class="form-check-input" type="radio" id="clotureOui" name="cloture" value="true" ${project.Cloture ? 'checked' : ''}>
+          <label class="form-check-label" for="clotureOui">Oui</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" id="clotureNon" name="cloture" value="false" ${!project.Cloture ? 'checked' : ''}>
+          <label class="form-check-label" for="clotureNon">Non</label>
+        </div>
+      `,
+      confirmButtonText: 'Mettre à jour',
+      showCancelButton: true,
+      cancelButtonText: 'Annuler',
+      preConfirm: () => {
+        return {
+          ...project,
+          nom: (document.getElementById('nom') as HTMLInputElement).value,
+          description: (document.getElementById('description') as HTMLInputElement).value,
+          date: (document.getElementById('date') as HTMLInputElement).value,
+          Cloture: (document.querySelector('input[name="cloture"]:checked') as HTMLInputElement).value === 'true'
+        };
+      },
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.projectService.updateProject(result.value).subscribe(() => {
+          Swal.fire('Succès', 'Projet mis à jour', 'success');
+          this.projectService.getProjects().subscribe(data => {
+            this.projects = data;
+          });
+        });
+      }
+    });
+  }
+
+  deleteProject(id: number): void {
+    this.projectService.deleteProject(id).subscribe(() => {
+      this.projects = this.projects.filter(project => project.id !== id);
+    });
+  }
 }

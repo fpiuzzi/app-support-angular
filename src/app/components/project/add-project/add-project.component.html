@@ -1,1 +1,32 @@
-<p>add-user works!</p>
+<!-- src/app/components/project/add-project/add-project.component.html -->
+<div class="card">
+  <div class="card-body">
+    <h1 class="card-title">Ajouter un nouveau projet</h1>
+    <form [formGroup]="projectForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="nom">Nom</label>
+        <input type="text" id="nom" class="form-control" formControlName="nom">
+      </div>
+      <div class="form-group">
+        <label for="description">Description</label>
+        <textarea id="description" class="form-control" formControlName="description"></textarea>
+      </div>
+      <div class="form-group">
+        <label for="date">Date</label>
+        <input type="date" id="date" class="form-control" formControlName="date">
+      </div>
+      <div class="form-group">
+        <label for="Cloture">Projet terminé ?</label>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" id="clotureOui" formControlName="Cloture" value="true">
+          <label class="form-check-label" for="clotureOui">Oui</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" id="clotureNon" formControlName="Cloture" value="false">
+          <label class="form-check-label" for="clotureNon">Non</label>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary">Ajouter</button>
+    </form>
+  </div>
+</div>

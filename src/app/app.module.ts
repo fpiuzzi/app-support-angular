@@ -28,6 +28,10 @@ import {HomeComponent} from './home/home.component';
 import {ProjectListComponent} from './components/project/project-list/project-list.component';
 import {AddProjectComponent} from './components/project/add-project/add-project.component';
 import {MatInput} from '@angular/material/input';
+import {AddUserComponent} from './components/User/add-user/add-user.component';
+import {UserListComponent} from './components/User/user-list/user-list.component';
+import {AddClientComponent} from './components/client/add-client/add-client.component';
+import {ClientListComponent} from './components/client/client-list/client-list.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +41,13 @@ import {MatInput} from '@angular/material/input';
     LoginComponent,
     AddTicketComponent,
     TicketListComponent,
+    AddUserComponent,
+    UserListComponent,
+    AddProjectComponent,
+    ProjectListComponent,
+    AddClientComponent,
+    ClientListComponent
+
   ],
   imports: [
     BrowserModule,

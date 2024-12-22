@@ -6,7 +6,6 @@
   <span class="spacer"></span>
   <button mat-button routerLink="/menu/home">Accueil</button>
   <button mat-button routerLink="/menu/tickets">Tickets</button>
-  <button mat-button *ngIf="(authService.userrole === 'admin')" routerLink="/menu/ticket">Nouveau Ticket</button>
   <button mat-button routerLink="/menu/users">Utilisateurs</button>
   <button mat-button routerLink="/menu/projects">Projets</button>
   <button mat-button routerLink="/menu/clients">Clients</button>
@@ -36,12 +35,6 @@
         <button mat-button routerLink="/menu/tickets">
           <mat-icon>dashboard</mat-icon>
           Tickets
-        </button>
-      </mat-list-item>
-      <mat-list-item>
-        <button mat-button *ngIf="(authService.userDetails && authService.userDetails.role === 'admin')" routerLink="/menu/ticket">
-          <mat-icon>dashboard</mat-icon>
-          Nouveau Ticket
         </button>
       </mat-list-item>
       <mat-list-item>

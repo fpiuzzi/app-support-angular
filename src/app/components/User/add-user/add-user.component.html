@@ -1,1 +1,42 @@
-<p>add-user works!</p>
+<!-- src/app/components/user/add-user/add-user.component.html -->
+<div class="card">
+  <div class="card-body">
+    <h1 class="card-title">Ajouter un nouvel utilisateur</h1>
+    <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="nom">Nom</label>
+        <input type="text" id="nom" class="form-control" formControlName="nom">
+      </div>
+      <div class="form-group">
+        <label for="prenom">Prénom</label>
+        <input type="text" id="prenom" class="form-control" formControlName="prenom">
+      </div>
+      <div class="form-group">
+        <label for="adresse">Adresse</label>
+        <input type="text" id="adresse" class="form-control" formControlName="adresse">
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" class="form-control" formControlName="email">
+      </div>
+      <div class="form-group">
+        <label for="password">Mot de passe</label>
+        <input type="password" id="password" class="form-control" formControlName="password">
+      </div>
+      <div class="form-group">
+        <label for="sexe">Sexe</label>
+        <input type="text" id="sexe" class="form-control" formControlName="sexe">
+      </div>
+      <div class="form-group">
+        <label for="telephone">Téléphone</label>
+        <input type="text" id="telephone" class="form-control" formControlName="telephone">
+      </div>
+      <div class="form-group">
+        <label for="role">Rôle</label>
+        <input type="text" id="role" class="form-control" formControlName="role">
+      </div>
+      <button type="submit" class="btn btn-primary">Ajouter</button>
+    </form>
+  </div>
+</div>
+

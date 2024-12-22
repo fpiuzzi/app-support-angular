@@ -9,6 +9,9 @@ import {HomeComponent} from './home/home.component';
 import {UserListComponent} from './components/User/user-list/user-list.component';
 import {ProjectListComponent} from './components/project/project-list/project-list.component';
 import {ClientListComponent} from './components/client/client-list/client-list.component';
+import {AddUserComponent} from './components/User/add-user/add-user.component';
+import {AddProjectComponent} from './components/project/add-project/add-project.component';
+import {AddClientComponent} from './components/client/add-client/add-client.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -20,8 +23,11 @@ const routes: Routes = [
       { path: 'tickets', component: TicketListComponent },
       { path: 'ticket', component: AddTicketComponent },
       { path: 'users', component: UserListComponent },
+      { path: 'user', component: AddUserComponent },
       { path: 'projects', component: ProjectListComponent },
-      { path: 'clients', component: ClientListComponent }
+      { path: 'project', component: AddProjectComponent },
+      { path: 'clients', component: ClientListComponent },
+      { path: 'client', component: AddClientComponent }
     ]
   },
 ];
