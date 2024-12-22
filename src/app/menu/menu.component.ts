@@ -29,3 +29,6 @@ export class MenuComponent implements OnInit {
   }
 
 }
+
+export class MenuComponentComponent {
+}

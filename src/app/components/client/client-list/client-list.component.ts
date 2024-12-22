@@ -20,7 +20,7 @@ export class ClientListComponent implements OnInit {
     this.clientService.getClients().subscribe(data => {
       this.clients = data;
       setTimeout(() => {
-        const table = new DataTable("#clientsTable", {
+        new DataTable("#clientsTable", {
           searchable: true,
           perPage: 10,
           perPageSelect: [5, 10, 20, 40],

@@ -20,7 +20,7 @@ export class TicketListComponent implements OnInit {
     this.ticketService.getTickets().subscribe(data => {
       this.tickets = data;
       setTimeout(() => {
-        const table = new DataTable("#ticketsTable", {
+        new DataTable("#ticketsTable", {
           searchable: true,
           perPage: 10,
           perPageSelect: [5, 10, 20, 40],

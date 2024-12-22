@@ -20,7 +20,7 @@ export class UserListComponent implements OnInit {
     this.userService.getUsers().subscribe(data => {
       this.users = data;
       setTimeout(() => {
-        const table = new DataTable("#usersTable", {
+        new DataTable("#usersTable", {
           searchable: true,
           perPage: 10,
           perPageSelect: [5, 10, 20, 40],

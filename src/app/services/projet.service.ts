@@ -28,3 +28,6 @@ export class ProjectService {
     return this.http.delete<void>(`${this.apiUrl}/${id}`);
   }
 }
+
+export class ProjetService {
+}

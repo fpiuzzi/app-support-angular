@@ -21,7 +21,7 @@ export class ProjectListComponent implements OnInit {
     this.projectService.getProjects().subscribe(data => {
       this.projects = data;
       setTimeout(() => {
-        const table = new DataTable("#projectsTable", {
+        new DataTable("#projectsTable", {
           searchable: true,
           perPage: 10,
           perPageSelect: [5, 10, 20, 40],
