@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Project } from '../../../models/project.model';
 import {ProjectService} from '../../../services/projet.service';
 import Swal from 'sweetalert2';
+import {DataTable} from 'simple-datatables';
 
 
 @Component({
@@ -19,6 +20,20 @@ export class ProjectListComponent implements OnInit {
   ngOnInit(): void {
     this.projectService.getProjects().subscribe(data => {
       this.projects = data;
+      setTimeout(() => {
+        const table = new DataTable("#projectsTable", {
+          searchable: true,
+          perPage: 10,
+          perPageSelect: [5, 10, 20, 40],
+          labels: {
+            placeholder: "Rechercher...",
+            perPage: " projets par page",
+            noRows: "Aucun nom de project trouvé",
+            noResults: 'Désolé, aucun résultat ne correspond à votre recherche.',
+            info: "Affichage de {start} à {end} sur {rows} projects"
+          }
+        });
+      }, 100);
     });
   }
   updateProject(project: Project): void {

@@ -13,15 +13,15 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatSidenavModule} from '@angular/material/sidenav';
-import {MatListModule} from '@angular/material/list';
+import {MatListItem, MatListModule, MatNavList} from '@angular/material/list';
 import {MatCardModule} from '@angular/material/card';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatTableModule} from '@angular/material/table';
-import {MatPaginatorModule} from '@angular/material/paginator';
-import {MatSortModule} from '@angular/material/sort';
+import {MatPaginator} from '@angular/material/paginator';
+import {MatSort, MatSortHeader} from '@angular/material/sort';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {ReactiveFormsModule} from '@angular/forms';
-import {HttpClientModule} from '@angular/common/http';
+import {provideHttpClient} from '@angular/common/http';
 import {AuthGuard} from './guard/auth.guard';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {HomeComponent} from './home/home.component';
@@ -52,24 +52,25 @@ import {ClientListComponent} from './components/client/client-list/client-list.c
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule,
     MatToolbarModule,
     MatButtonModule,
     MatIconModule,
     MatMenuModule,
     MatSidenavModule,
-    MatListModule,
+    MatListItem,
+    MatNavList,
     MatCardModule,
     MatDividerModule,
     MatTableModule,
-    MatPaginatorModule,
-    MatSortModule,
+    MatPaginator,
+    MatSort,
+    MatSortHeader,
+    MatInput,
     MatFormFieldModule,
     ReactiveFormsModule,
-    HttpClientModule,
-    MatInput
+    BrowserAnimationsModule
   ],
-  providers: [AuthGuard, provideAnimationsAsync()],
+  providers: [AuthGuard, provideHttpClient()],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

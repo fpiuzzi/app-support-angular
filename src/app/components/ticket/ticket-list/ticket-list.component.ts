@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Ticket } from '../../../models/ticket.model';
 import { TicketService } from '../../../services/ticket.service';
 import Swal from 'sweetalert2';
+import {DataTable} from 'simple-datatables';
 
 @Component({
   selector: 'app-ticket-list',
@@ -16,7 +17,23 @@ export class TicketListComponent implements OnInit {
   constructor(private ticketService: TicketService) {}
 
   ngOnInit(): void {
-    this.loadTickets();
+    this.ticketService.getTickets().subscribe(data => {
+      this.tickets = data;
+      setTimeout(() => {
+        const table = new DataTable("#ticketsTable", {
+          searchable: true,
+          perPage: 10,
+          perPageSelect: [5, 10, 20, 40],
+          labels: {
+            placeholder: "Rechercher...",
+            perPage: " tickets par page",
+            noRows: "Aucun ticket trouvé",
+            noResults: 'Désolé, aucun résultat ne correspond à votre recherche.',
+            info: "Affichage de {start} à {end} sur {rows} tickets"
+          }
+        });
+      }, 100);
+    });
   }
 
   loadTickets(): void {

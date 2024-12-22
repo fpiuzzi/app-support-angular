@@ -14,7 +14,7 @@ export  class  AuthGuard  {
                private router : Router) {
    }
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): MaybeAsync<GuardResult> {
-      if(this.authService.authenticated ==true){
+      if(this.authService.authenticated){
         return true;
       } else {
         this.router.navigateByUrl("/login")

@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { User } from '../../../models/user.model';
 import { UserService } from '../../../services/user.service';
 import Swal from 'sweetalert2';
+import {DataTable} from 'simple-datatables';
 
 @Component({
   selector: 'app-user-list',
@@ -18,6 +19,20 @@ export class UserListComponent implements OnInit {
   ngOnInit(): void {
     this.userService.getUsers().subscribe(data => {
       this.users = data;
+      setTimeout(() => {
+        const table = new DataTable("#usersTable", {
+          searchable: true,
+          perPage: 10,
+          perPageSelect: [5, 10, 20, 40],
+          labels: {
+            placeholder: "Rechercher...",
+            perPage: " utilisateurs par page",
+            noRows: "Aucun utilisateur trouvé",
+            noResults: 'Désolé, aucun résultat ne correspond à votre recherche.',
+            info: "Affichage de {start} à {end} sur {rows} utilisateurs"
+          }
+        });
+      }, 100);
     });
   }
 

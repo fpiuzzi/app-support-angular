@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Client } from '../../../models/client.model';
 import { ClientService } from '../../../services/client.service';
 import Swal from 'sweetalert2';
+import {DataTable} from 'simple-datatables';
 
 @Component({
   selector: 'app-client-list',
@@ -18,6 +19,20 @@ export class ClientListComponent implements OnInit {
   ngOnInit(): void {
     this.clientService.getClients().subscribe(data => {
       this.clients = data;
+      setTimeout(() => {
+        const table = new DataTable("#clientsTable", {
+          searchable: true,
+          perPage: 10,
+          perPageSelect: [5, 10, 20, 40],
+          labels: {
+            placeholder: "Rechercher...",
+            perPage: " clients par page",
+            noRows: "Aucun client trouvé",
+            noResults: 'Désolé, aucun résultat ne correspond à votre recherche.',
+            info: "Affichage de {start} à {end} sur {rows} clients"
+          }
+        });
+      }, 100);
     });
   }
   updateClient(client: Client): void {
