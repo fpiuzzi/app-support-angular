@@ -1,7 +1,5 @@
 import {
   ActivatedRouteSnapshot,
-  CanActivate,
-  CanActivateFn,
   GuardResult,
   MaybeAsync, Router,
   RouterStateSnapshot
@@ -17,9 +15,8 @@ export  class  AuthGuard  {
       if(this.authService.authenticated){
         return true;
       } else {
-        this.router.navigateByUrl("/login")
+        this.router.navigateByUrl("/login").then(r => false )
         return false;
       }
-
   }
 }
