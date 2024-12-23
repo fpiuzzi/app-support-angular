@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthenticationService } from '../services/authservice.service';
+import {MatIconModule} from '@angular/material/icon';
 
 @Component({
   selector: 'app-menu',
@@ -15,7 +16,7 @@ export class MenuComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
+    this.userRole = this.authService.userrole;
   }
 
   getUserImage(sexe: string): string {

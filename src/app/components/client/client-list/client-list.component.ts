@@ -1,9 +1,9 @@
-// src/app/components/client/client-list/client-list.component.ts
 import { Component, OnInit } from '@angular/core';
 import { Client } from '../../../models/client.model';
 import { ClientService } from '../../../services/client.service';
 import Swal from 'sweetalert2';
 import {DataTable} from 'simple-datatables';
+import {AuthenticationService} from '../../../services/authservice.service';
 
 @Component({
   selector: 'app-client-list',
@@ -14,7 +14,7 @@ import {DataTable} from 'simple-datatables';
 export class ClientListComponent implements OnInit {
   clients: Client[] = [];
 
-  constructor(private clientService: ClientService) {}
+  constructor(private clientService: ClientService, protected authService: AuthenticationService) {}
 
   ngOnInit(): void {
     this.clientService.getClients().subscribe(data => {

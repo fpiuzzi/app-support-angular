@@ -1,8 +1,7 @@
-<!-- src/app/components/user/user-list/user-list.component.html -->
 <div class="card">
   <div class="card-body">
     <h1 class="card-title">Liste des Utilisateurs</h1>
-    <button class="btn btn-primary mb-3" routerLink="/menu/user">Ajouter un nouvel utilisateur</button>
+    <button *ngIf="authService.userrole === 'admin'" class="btn btn-primary mb-3" routerLink="/menu/user">Ajouter un nouvel utilisateur</button>
     <table id="usersTable" class="table">
       <thead>
       <tr>

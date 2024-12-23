@@ -1,4 +1,3 @@
-// src/app/models/project.model.ts
 export interface Project {
   id: number;
   nom: string;

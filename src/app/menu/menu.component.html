@@ -1,14 +1,28 @@
-<!-- src/app/menu/menu.component.html -->
-<mat-toolbar color="primary">
-  <button mat-icon-button (click)="drawer.toggle()">
+<mat-toolbar color="primary" xmlns="http://www.w3.org/1999/html">
+  <button mat-icon-button (click)="drawer.toggle()" aria-label="Toggle menu">
     <mat-icon>menu</mat-icon>
   </button>
   <span class="spacer"></span>
-  <button mat-button routerLink="/menu/home">Accueil</button>
-  <button mat-button routerLink="/menu/tickets">Tickets</button>
-  <button mat-button routerLink="/menu/users">Utilisateurs</button>
-  <button mat-button routerLink="/menu/projects">Projets</button>
-  <button mat-button routerLink="/menu/clients">Clients</button>
+  <button mat-button routerLink="/menu/home" aria-label="Accueil">
+    <mat-icon>home</mat-icon>
+    Accueil
+  </button>
+  <button mat-button routerLink="/menu/tickets" aria-label="Tickets">
+    <mat-icon>confirmation_number</mat-icon>
+    Tickets
+  </button>
+  <button *ngIf="authService.userrole === 'admin'" mat-button routerLink="/menu/users" aria-label="Utilisateurs">
+    <mat-icon>people</mat-icon>
+    Utilisateurs
+  </button>
+  <button mat-button routerLink="/menu/projects" aria-label="Projets">
+    <mat-icon>folder</mat-icon>
+    Projets
+  </button>
+  <button mat-button routerLink="/menu/clients" aria-label="Clients">
+    <mat-icon>business</mat-icon>
+    Clients
+  </button>
 
   <!-- Image de profil avec menu -->
   <div class="profile-container mx-2">
@@ -24,7 +38,7 @@
     <button mat-menu-item>
       <span>{{ authService.username }}</span>
     </button>
-    <button mat-menu-item (click)="logout()">Déconnexion</button>
+    <button mat-menu-item (click)="logout()" aria-label="">Déconnexion</button>
   </mat-menu>
 </mat-toolbar>
 
@@ -32,25 +46,25 @@
   <mat-drawer #drawer mode="side" position="start" opened="true">
     <mat-nav-list>
       <mat-list-item>
-        <button mat-button routerLink="/menu/tickets">
+        <button mat-button routerLink="/menu/tickets" aria-label="Tickets">
           <mat-icon>dashboard</mat-icon>
           Tickets
         </button>
       </mat-list-item>
-      <mat-list-item>
-        <button mat-button routerLink="/menu/users">
+      <mat-list-item *ngIf="authService.userrole === 'admin'">
+        <button mat-button routerLink="/menu/users" aria-label="Utilisateurs">
           <mat-icon>dashboard</mat-icon>
           Utilisateurs
         </button>
       </mat-list-item>
       <mat-list-item>
-        <button mat-button routerLink="/menu/projects">
+        <button mat-button routerLink="/menu/projects" aria-label="Projets">
           <mat-icon>dashboard</mat-icon>
           Projets
         </button>
       </mat-list-item>
       <mat-list-item>
-        <button mat-button routerLink="/menu/clients">
+        <button mat-button routerLink="/menu/clients" aria-label="Clients">
           <mat-icon>dashboard</mat-icon>
           Clients
         </button>

@@ -1,9 +1,9 @@
-// src/app/components/user/user-list/user-list.component.ts
 import { Component, OnInit } from '@angular/core';
 import { User } from '../../../models/user.model';
 import { UserService } from '../../../services/user.service';
 import Swal from 'sweetalert2';
 import {DataTable} from 'simple-datatables';
+import {AuthenticationService} from '../../../services/authservice.service';
 
 @Component({
   selector: 'app-user-list',
@@ -14,7 +14,7 @@ import {DataTable} from 'simple-datatables';
 export class UserListComponent implements OnInit {
   users: User[] = [];
 
-  constructor(private userService: UserService) {}
+  constructor(private userService: UserService, protected authService: AuthenticationService) {}
 
   ngOnInit(): void {
     this.userService.getUsers().subscribe(data => {

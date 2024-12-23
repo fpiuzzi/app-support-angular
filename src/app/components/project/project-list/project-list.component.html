@@ -1,8 +1,7 @@
-<!-- src/app/components/project/project-list/project-list.component.html -->
 <div class="card">
   <div class="card-body">
     <h1 class="card-title">Liste des Projets</h1>
-    <button class="btn btn-primary mb-3" routerLink="/menu/project">Ajouter un nouveau projet</button>
+    <button *ngIf="authService.userrole === 'admin'" class="btn btn-primary mb-3" routerLink="/menu/project">Ajouter un nouveau projet</button>
     <table id="projectsTable" class="table">
       <thead>
       <tr>

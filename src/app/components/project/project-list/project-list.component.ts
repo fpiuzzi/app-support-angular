@@ -1,9 +1,9 @@
-// src/app/components/project/project-list/project-list.component.ts
 import { Component, OnInit } from '@angular/core';
 import { Project } from '../../../models/project.model';
 import {ProjectService} from '../../../services/projet.service';
 import Swal from 'sweetalert2';
 import {DataTable} from 'simple-datatables';
+import {AuthenticationService} from '../../../services/authservice.service';
 
 
 @Component({
@@ -15,7 +15,7 @@ import {DataTable} from 'simple-datatables';
 export class ProjectListComponent implements OnInit {
   projects: Project[] = [];
 
-  constructor(private projectService: ProjectService) {}
+  constructor(private projectService: ProjectService, protected authService: AuthenticationService) {}
 
   ngOnInit(): void {
     this.projectService.getProjects().subscribe(data => {
@@ -60,7 +60,7 @@ export class ProjectListComponent implements OnInit {
           ...project,
           nom: (document.getElementById('nom') as HTMLInputElement).value,
           description: (document.getElementById('description') as HTMLInputElement).value,
-          date: (document.getElementById('date') as HTMLInputElement).value,
+          date: (document.getElementById('date') as HTMLInputElement).valueAsDate,
           Cloture: (document.querySelector('input[name="cloture"]:checked') as HTMLInputElement).value === 'true'
         };
       },

@@ -4,9 +4,9 @@
       "id": "1",
       "title": "Problème de connexion",
       "description": "Je ne peux pas me connecter à mon compte.",
-      "status": "Ouvert",
+      "status": "En cours",
       "createdAt": "2023-10-01T10:00:00Z",
-      "updatedAt": "2023-10-01T10:00:00Z"
+      "updatedAt": "2024-12-23T10:03:17.882Z"
     },
     {
       "id": "2",
@@ -25,13 +25,12 @@
       "updatedAt": "2023-10-03T12:00:00Z"
     },
     {
-      "id": "4",
-      "ticketNumber": 0,
-      "title": "En panne",
+      "id": "612e",
+      "title": "Ne fonctionne plus",
       "description": "Mon pc ne fonctionne plus depuis 1 semaine",
-      "status": "En cours",
-      "createdAt": "2024-12-20T22:23:00.527Z",
-      "updatedAt": "2024-12-20T22:34:48.967Z"
+      "status": "Ouvert",
+      "createdAt": "2024-12-23T10:04:05.231Z",
+      "updatedAt": "2024-12-23T10:04:05.231Z"
     }
   ],
   "users": [
@@ -41,7 +40,7 @@
       "prenom": "Laurent",
       "adresse": "123 Rue de la Tourtelle 31400 Toulouse",
       "email": "laurent.dumas@mymail.com",
-      "password": "hdumas",
+      "password": "user",
       "sexe": "Homme",
       "telephone": "0605040302",
       "role": "user"
@@ -62,8 +61,8 @@
       "nom": "DEMAS",
       "prenom": "Philippe",
       "adresse": "18 rue Jean Jaures 06000 Nice",
-      "email": "admin",
-      "password": "1234",
+      "email": "philippe.demas@mymail.com",
+      "password": "admin",
       "sexe": "Homme",
       "telephone": "0706050403",
       "role": "admin"
@@ -114,14 +113,14 @@
       "id": "1",
       "nom": "Projet Alpha",
       "description": "Développement d'une nouvelle application web.",
-      "date": "2023-11-01T09:00:00Z",
+      "date": "2024-12-23T00:00:00.000Z",
       "Cloture": false
     },
     {
       "id": "2",
       "nom": "Projet Beta",
       "description": "Mise à jour du système de gestion des utilisateurs.",
-      "date": "2023-11-02T10:00:00Z",
+      "date": "2023-11-02T00:00:00.000Z",
       "Cloture": true
     },
     {

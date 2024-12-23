@@ -1,4 +1,3 @@
-// src/app/models/ticket.model.ts
 export interface Ticket {
   id: number;
   title: string;

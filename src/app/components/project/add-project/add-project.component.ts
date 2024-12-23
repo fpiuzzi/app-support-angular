@@ -1,6 +1,5 @@
-// src/app/components/project/add-project/add-project.component.ts
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { Router } from '@angular/router';
 import {ProjectService} from '../../../services/projet.service';
 

@@ -1,4 +1,3 @@
-// src/app/components/ticket/ticket-list/ticket-list.component.ts
 import { Component, OnInit } from '@angular/core';
 import { Ticket } from '../../../models/ticket.model';
 import { TicketService } from '../../../services/ticket.service';
