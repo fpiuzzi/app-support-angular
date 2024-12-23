@@ -31,7 +31,7 @@ export class LoginComponent implements OnInit {
         if(isAuthenticated) {
           console.log('Utilisateur authentifie : ',this.authService.userDetails);
           this.loginError = '';
-          this.router.navigateByUrl("/menu");
+          this.router.navigateByUrl("/menu/home");
 
         } else {
           this.loginError = 'Identifiant ou mot de passe incorrect.';
