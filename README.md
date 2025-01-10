@@ -1,3 +1,17 @@
+# Info lancement projet
+
+Pour lancer les datas avec json-server :
+- json-server --watch ticket.json --port 3000
+
+# Accès utilisateurs : 
+Dans les utilisateurs il y a des admin et des user
+## User :
+- Les "users" ont accès aux tickets, projets et clients.
+- Ils peuvent créer seulement des tickets (bouton visible)
+## Admin :
+- Les "admins" ont accès aux tickets, projets, clients et utilisateurs.
+- Ils ont aussi la possibilité de créer un ticket, un client et un utilisateur
+
 # AppSupportClient
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.0.6.
