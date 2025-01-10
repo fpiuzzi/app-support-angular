@@ -1,0 +1,11 @@
+Pour lancer les datas avec json-server
+
+json-server --watch ticket.json --port 3000
+
+Dans les utilisateurs il y a des admin et des user
+
+Les "users" ont accès aux tickets, projets et clients.
+Ils peuvent créer seulement des tickets (bouton visible)
+
+Les "admins" ont accès aux tickets, projets, clients et utilisateurs.
+Ils ont aussi la possibilité de créer un ticket, un client et un utilisateur
